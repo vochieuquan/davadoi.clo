@@ -1,0 +1,328 @@
+:root {
+    --primary-color: #000000;
+    --secondary-color: #ffffff;
+    --accent-color: #f5f5f5;
+    --text-color: #333333;
+    --border-color: #e0e0e0;
+    --transition: all 0.3s ease;
+}
+
+/* Navbar cố định trên cùng */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--secondary-color);
+    padding: 15px 20px;
+    font-family: 'Montserrat', sans-serif;
+    height: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Căn chỉnh các mục trong navbar */
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Định dạng các liên kết */
+.nav-left a, .nav-right a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin: 0 15px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.nav-left a:hover, .nav-right a:hover {
+    opacity: 0.7;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* Dropdown menu */
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--secondary-color);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Mobile menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .nav-left {
+        display: none;
+    }
+
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .logo {
+        position: static;
+        transform: none;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-right span {
+        display: none;
+    }
+}
+/* Chỉnh màu khi hover vào link */
+.nav-left a:hover, 
+.nav-right a:hover, 
+.dropbtn:hover {
+    background-color: #e0e0e0; /* Màu xám nhạt */
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+/* Xóa hiệu ứng màu xanh khi nhấn vào nút */
+button:focus, 
+.dropbtn:focus, 
+a:focus {
+    outline: none;
+    background-color: #e0e0e0; /* Giữ màu xám khi focus */
+}
+:root {
+  --primary-color: #000000;
+  --secondary-color: #ffffff;
+  --accent-color: #f5f5f5;
+  --text-color: #333333;
+  --border-color: #e0e0e0;
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
+}
+
+.demo-container {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Header styles */
+.announcement-bar {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 8px 0;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--secondary-color);
+  z-index: 1000;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Georgia", serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-left a,
+.nav-right a,
+.nav-right span {
+  margin: 0 15px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  transition: var(--transition);
+  text-transform: uppercase;
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  opacity: 0.7;
+}
+
+.nav-right span {
+  font-style: italic;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-count {
+  display: inline-block;
+}
+
+/* Mobile menu */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+/* Slider styles */
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 80vh;
+}
+
+.slider {
+  display: flex;
+  height: 100%;
+  width: 300%; /* 3 images */
+}
+
+.slider img {
+  width: 33.333%; /* Each image takes 1/3 of slider width */
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Slider navigation */
+.slider-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.slider-nav button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--primary-color);
+  background: transparent;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.slider-nav button.active {
+  background-color: var(--primary-color);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .nav-left {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .slider-container {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav-right span {
+    display: none;
+  }
+
+  .slider-container {
+    height: 40vh;
+  }
+}
+
