@@ -663,7 +663,7 @@
                         alert("Mã giảm giá " + promoCode + " đã bị tắt!");
                     } else if (<%= discount.getCounter() %> >= <%= discount.getMaxUsage() %>) {
                         appliedDiscount = 0;
-                        alert("Mã giảm giá " + promoCode + " đã hết lượt sử dụng (" + <%= discount.getCounter() %> + "/" + <%= discount.getMaxUsage() %> + ")!");
+                        alert("Mã giảm giá " + promoCode + " đã hết lượt sử dụng!");
                     } else {
                         <% if (discount.isPercentage()) { %>
                             appliedDiscount = Math.floor(cartTotal * <%= discount.getDiscountValue() %> / 100);

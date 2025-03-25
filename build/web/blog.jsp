@@ -328,13 +328,7 @@
                 window.location.href = "index.jsp";
             });
 
-            // Thêm nhạc nền từ YouTube
-            let audioFrame = document.createElement("iframe");
-            audioFrame.src = "https://www.youtube.com/embed/j3KCob5TbMk?autoplay=1&loop=1&playlist=j3KCob5TbMk&mute=0";
-            audioFrame.allow = "autoplay"; // Cho phép tự động phát
-            audioFrame.style.display = "none"; // Ẩn iframe
-            document.body.appendChild(audioFrame);
-
+            
             // Kiểm tra nếu nhạc không phát
             setTimeout(() => {
                 if (!document.querySelector("iframe[src*='j3KCob5TbMk']").contentWindow) {

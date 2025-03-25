@@ -25,405 +25,572 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --black: #000000;
-            --white: #ffffff;
-            --off-white: #f5f5f5;
-            --light-gray: #e0e0e0;
-            --medium-gray: #767676;
-            --dark-gray: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: var(--white);
-            color: var(--black);
-            min-height: 100vh;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-        }
-        
-        /* Brand statement section */
-        .brand-statement {
-            text-align: center;
-            padding: 5rem 1rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .brand-statement h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.05em;
-        }
-        
-        .brand-statement p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: var(--medium-gray);
-            margin-bottom: 2rem;
-        }
-        
-        .divider {
-            width: 50px;
-            height: 1px;
-            background-color: var(--black);
-            margin: 0 auto 2rem;
-        }
-        
-        /* Category navigation */
-        .category-nav {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1.5rem;
-            max-width: 1400px;
-            margin: 0 auto 5rem;
-            padding: 0 2rem;
-        }
-        
-        .category-nav-item {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 1/1;
-        }
-        
-        .category-nav-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
-        }
-        
-        .category-nav-item:hover img {
-            transform: scale(1.05);
-        }
-        
-        .category-nav-item .overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 1.5rem;
-            color: var(--white);
-            text-align: center;
-        }
-        
-        .category-nav-item h3 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 1.5rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-        
-        .category-nav-item a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .category-nav-item a::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--white);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-        
-        .category-nav-item a:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        
-        /* Featured collection */
-        .featured-collection {
-            background-color: var(--off-white);
-            padding: 5rem 2rem;
-            margin-bottom: 5rem;
-        }
-        
-        .featured-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            letter-spacing: 0.05em;
-        }
-        
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        /* Category title and product grid */
-        .category-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 1.8rem;
-            color: var(--black);
-            text-align: center;
-            letter-spacing: 0.05em;
-            margin: 4rem 0 3rem;
-            text-transform: uppercase;
-        }
-        
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 5rem;
-        }
-        
-        .product-card {
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            background: transparent;
-            border: none;
-            overflow: hidden;
-        }
-        
-        .product-image-container {
-            position: relative;
-            overflow: hidden;
-            aspect-ratio: 3/4;
-            margin-bottom: 1rem;
-            background-color: var(--off-white);
-        }
-        
-        .product-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1s ease;
-        }
-        
-        .product-card:hover .product-image {
-            transform: scale(1.03);
-        }
-        
-        .product-info {
-            padding: 0.5rem 0;
-            text-align: center;
-        }
-        
-        .product-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: var(--black);
-            letter-spacing: 0.05em;
-        }
-        
-        .product-price {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 400;
-            font-size: 0.9rem;
-            color: var(--medium-gray);
-            margin-bottom: 0.5rem;
-        }
-        
-        .product-color {
-            font-size: 0.8rem;
-            color: var(--medium-gray);
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-        
-        .btn-view {
-            font-family: 'Montserrat', sans-serif;
-            background-color: transparent;
-            border: none;
-            color: var(--black);
-            font-size: 0.8rem;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0;
-            margin: 0 auto;
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-view::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            bottom: -4px;
-            left: 0;
-            background-color: var(--black);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn-view:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left;
-        }
-        
-        .category-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .empty-category {
-            text-align: center;
-            padding: 5rem 0;
-        }
-        
-        .empty-category p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            color: var(--medium-gray);
-            font-style: italic;
-        }
-        
-        .category-divider {
-            width: 100%;
-            height: 1px;
-            background-color: var(--light-gray);
-            margin: 5rem 0;
-        }
-        
-        @media (max-width: 992px) {
-            .category-nav {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .brand-statement {
-                padding: 4rem 1rem;
-            }
-            
-            .brand-statement h1 {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 767.98px) {
-            .product-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-                gap: 1.5rem;
-            }
-            
-            .category-title {
-                font-size: 1.5rem;
-                margin: 3rem 0 2rem;
-            }
-            
-            .category-container {
-                padding: 0 1rem;
-            }
-            
-            .featured-collection {
-                padding: 3rem 1rem;
-            }
-            
-            .brand-statement {
-                padding: 3rem 1rem;
-            }
-            
-            .brand-statement h1 {
-                font-size: 1.8rem;
-            }
-        }
-        .slider-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  overflow: hidden;
-  position: relative;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --black: #000000;
+    --white: #ffffff;
+    --off-white: #f5f5f5;
+    --light-gray: #e0e0e0;
+    --medium-gray: #767676;
+    --dark-gray: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+    min-height: 100vh;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* Brand statement section */
+.brand-statement {
+    text-align: center;
+    padding: 5rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.brand-statement h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.brand-statement p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--medium-gray);
+    margin-bottom: 2rem;
+}
+
+.divider {
+    width: 50px;
+    height: 1px;
+    background-color: var(--black);
+    margin: 0 auto 2rem;
+}
+
+/* Category navigation */
+.category-nav {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+}
+
+.category-nav-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+}
+
+.category-nav-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.category-nav-item:hover img {
+    transform: scale(1.05);
+}
+
+.category-nav-item .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+background-color: rgba(15, 15, 15, 0.85);
+    padding: 1.5rem;
+    color: var(--white);
+    text-align: center;
+}
+
+.category-nav-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.category-nav-item a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.category-nav-item a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--white);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.category-nav-item a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Featured collection */
+.featured-collection {
+background: linear-gradient(to bottom, #1e1e1e, #2a2a2a);
+    padding: 5rem 2rem;
+    margin-bottom: 5rem;
+    position: relative;
+}
+
+.featured-title {
+        color: #ffffff; /* Chỉnh sang trắng hoặc màu sáng hơn */
+
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    letter-spacing: 0.05em;
+}
+
+.gallery-container {
+    position: relative;
+    height: 700px;
+background: linear-gradient(to bottom, #1e1e1e, #2a2a2a);
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.image-container {
+    position: absolute;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.center-image {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px; /* Giảm kích thước để tạo khoảng cách */
+    height: 500px;
+    z-index: 10;
+}
+
+.top-right-image {
+    right: -10%; /* Tăng khoảng cách từ mép trái */
+    top: 5%; /* Tăng khoảng cách từ mép trên */
+    width: 200px; /* Giảm kích thước */
+    height: 300px;
+    transform: rotate(10deg);
+}
+
+.top-left-image {
+    left: -10%; /* Tăng khoảng cách từ mép trái */
+    top: 5%; /* Tăng khoảng cách từ mép trên */
+    width: 200px; /* Giảm kích thước */
+    height: 300px;
+    transform: rotate(-10deg);
+}
+
+.right-image {
+    right: 1%; /* Tăng khoảng cách từ mép phải */
+    top: 75%;
+    transform: translateY(-50%) rotate(10deg);
+    width: 200px; /* Giảm kích thước */
+    height: 300px;
+}
+
+.left-image {
+    left: 1%; /* Tăng khoảng cách từ mép trái */
+    top: 75%;
+    transform: translateY(-50%) rotate(-10deg);
+    width: 200px; /* Giảm kích thước */
+    height: 300px;
+}
+
+/* Hover effect styles */
+.hover-effect .image-container {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.hover-effect .center-image {
+    transform: translate(-50%, -50%) scale(0.9);
+}
+
+.hover-effect .image-container:hover {
+    opacity: 1;
+    z-index: 20;
+}
+
+.hover-effect .center-image:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.hover-effect .top-right-image:hover {
+    transform: rotate(0) scale(1.1);
+}
+
+.hover-effect .top-left-image:hover {
+    transform: rotate(0) scale(1.1);
+}
+
+.hover-effect .right-image:hover {
+    transform: translateY(-50%) rotate(0) scale(1.1);
+}
+
+.hover-effect .left-image:hover {
+    transform: translateY(-50%) rotate(0) scale(1.1);
+}
+
+.instruction {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: var(--white);
+    font-size: 14px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .center-image {
+        width: 400px;
+        height: 550px;
+    }
+
+    .top-right-image,
+    .top-left-image {
+        width: 250px;
+        height: 350px;
+    }
+
+    .right-image,
+    .left-image {
+        width: 200px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .center-image {
+        width: 300px;
+        height: 400px;
+    }
+
+    .top-right-image,
+    .top-left-image {
+        width: 200px;
+        height: 280px;
+    }
+
+    .right-image,
+    .left-image {
+        width: 180px;
+        height: 250px;
+    }
+
+    .featured-collection {
+        padding: 3rem 1rem;
+    }
+}
+
+/* Category title and product grid */
+.category-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.8rem;
+    color: var(--black);
+    text-align: center;
+    letter-spacing: 0.05em;
+    margin: 4rem 0 3rem;
+    text-transform: uppercase;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: transparent;
+    border: none;
+    overflow: hidden;
+}
+
+.product-image-container {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    margin-bottom: 1rem;
+    background-color: var(--off-white);
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.03);
+}
+
+.product-info {
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    letter-spacing: 0.05em;
+}
+
+.product-price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+    margin-bottom: 0.5rem;
+}
+
+.product-color {
+    font-size: 0.8rem;
+    color: var(--medium-gray);
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.btn-view {
+    font-family: 'Montserrat', sans-serif;
+    background-color: transparent;
+    border: none;
+    color: var(--black);
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-view::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--black);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+.btn-view:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.category-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.empty-category {
+    text-align: center;
+    padding: 5rem 0;
+}
+
+.empty-category p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: var(--medium-gray);
+    font-style: italic;
+}
+
+.category-divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--light-gray);
+    margin: 5rem 0;
+}
+
+@media (max-width: 992px) {
+    .category-nav {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-statement {
+        padding: 4rem 1rem;
+    }
+
+    .brand-statement h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+        margin: 3rem 0 2rem;
+    }
+
+    .category-container {
+        padding: 0 1rem;
+    }
+
+    .featured-collection {
+        padding: 3rem 1rem;
+    }
+
+    .brand-statement {
+        padding: 3rem 1rem;
+    }
+
+    .brand-statement h1 {
+        font-size: 1.8rem;
+    }
+
+    .center-image {
+        width: 220px;
+        height: 220px;
+    }
+
+    .top-right-image, .top-left-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .right-image, .left-image {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+.slider-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .slider {
-  display: flex;
-  width: 300%; /* 3 images */
-  animation: slide 15s infinite ease-in-out;
+    display: flex;
+    width: 300%; /* 3 images */
+    animation: slide 15s infinite ease-in-out;
 }
 
 .slider img {
-  width: 33.333%; /* Each image takes up 1/3 of the slider width */
-  height: auto;
-  object-fit: cover;
-  flex-shrink: 0;
+    width: 33.333%; /* Each image takes up 1/3 of the slider width */
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 
 @keyframes slide {
-  0%,
-  30% {
-    transform: translateX(0);
-  }
-  33%,
-  63% {
-    transform: translateX(-33.333%);
-  }
-  66%,
-  96% {
-    transform: translateX(-66.666%);
-  }
-  100% {
-    transform: translateX(0);
-  }
+    0%, 30% {
+        transform: translateX(0);
+    }
+    33%, 63% {
+        transform: translateX(-33.333%);
+    }
+    66%, 96% {
+        transform: translateX(-66.666%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .slider-container {
-    border-radius: 6px;
-  }
+    .slider-container {
+        border-radius: 6px;
+    }
 }
 
 /* Pause animation on hover */
 .slider-container:hover .slider {
-  animation-play-state: paused;
+    animation-play-state: paused;
 }
-
-
     </style>
 </head>
 <body>
-    <!-- Header and Slider would be here (from your header.jsp) -->
+    <!-- Slider -->
     <div class="slider-container">
-    <div class="slider">
-        <img src="images/nen12.png" alt="Slider Image">
-        <img src="images/nen13.png" alt="Slider Image">
-        <img src="images/nen12.png" alt="Slider Image">
-
+        <div class="slider">
+            <img src="images/nen12.png" alt="Slider Image">
+            <img src="images/nen13.png" alt="Slider Image">
+            <img src="images/nen12.png" alt="Slider Image">
+        </div>
     </div>
-</div>
+
     <!-- Brand Statement Section -->
     <section class="brand-statement">
-        <h1>Timeless Elegance, Modern Expression</h1>
                 <h1>DAVADOI.CLO</h1>
 
+        <h1>Timeless Elegance, Modern Expression</h1>
         <div class="divider"></div>
         <p>
             Davadoi được sinh ra với một tầm nhìn: không chỉ là thời trang, mà còn 
@@ -474,35 +641,38 @@
     </section>
     
     <!-- Featured Collection -->
+    <!-- Featured Collection -->
     <section class="featured-collection">
-        <h2 class="featured-title">Bộ Sưu Tập Nổi Bật</h2>
-        <div class="featured-grid">
-            <% 
-            // Display 3 random products as featured items
-            int featuredCount = 0;
-            List<Product> shuffledProducts = new ArrayList<>(products);
-            java.util.Collections.shuffle(shuffledProducts);
-            
-            for (Product p : shuffledProducts) {
-                if (featuredCount >= 4) break;
-                featuredCount++;
-            %>
-                <div class="product-card">
-                    <a href="productdetails.jsp?id=<%= p.getProductID() %>" class="text-decoration-none">
-                        <div class="product-image-container">
-                            <img src="images/<%= p.getProductID() %>.png" class="product-image" alt="<%= p.getProductName() %>">
-                        </div>
-                        <div class="product-info">
-                            <h3 class="product-name"><%= p.getProductName() %></h3>
-                            <p class="product-price"><%= String.format("%,.0f", p.getPrice()) %>₫</p>
-                            <p class="product-color"><%= p.getColor() %></p>
-                            <span class="btn-view">Xem chi tiết</span>
-                        </div>
-                    </a>
-                </div>
-            <% } %>
+        <h2 class="featured-title">Sản Phẩm Nổi Bật</h2>
+        <div class="gallery-container hover-effect">
+            <div class="gallery-wrapper">
+                <% 
+                int featuredCount = 0;
+                List<Product> shuffledProducts = new ArrayList<>(products);
+                java.util.Collections.shuffle(shuffledProducts);
+                
+                for (Product p : shuffledProducts) {
+                    if (featuredCount >= 5) break;
+                    String className = "";
+                    if (featuredCount == 0) className = "center-image";
+                    else if (featuredCount == 1) className = "top-right-image";
+                    else if (featuredCount == 2) className = "top-left-image";
+                    else if (featuredCount == 3) className = "right-image";
+                    else if (featuredCount == 4) className = "left-image";
+                    featuredCount++;
+                %>
+                    <div class="image-container <%= className %>">
+                        <a href="productdetails.jsp?id=<%= p.getProductID() %>">
+                            <img src="images/<%= p.getProductID() %>.png" alt="<%= p.getProductName() %>">
+                        </a>
+                    </div>
+                <% } %>
+            </div>
         </div>
     </section>
+
+</body>
+</html>
     
     <!-- T-SHIRTS Section -->
     <div id="tops-section" class="category-container">

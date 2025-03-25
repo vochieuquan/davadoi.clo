@@ -264,7 +264,7 @@
     
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; <%= new java.util.Date().getYear() + 1900 %> DAVADOI.CLO. Tất cả quyền được bảo lưu.</p>
+        <p>&copy; <%= new java.util.Date().getYear() + 1900 %> DAVADOI.CLO.</p>
     </footer>
 </body>
 </html>

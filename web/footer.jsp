@@ -214,7 +214,7 @@
                     <div class="col-sm-6 col-md-3 item">
                         <h3>Thông Tin</h3>
                         <ul>
-                            <li><a href="#">Về Chúng Tôi</a></li>
+                            <li><a href="blog.jsp">Về Chúng Tôi</a></li>
                             <li><a href="#">Chính Sách Đổi Trả</a></li>
                             <li><a href="#">Hướng Dẫn Mua Hàng</a></li>
                             <li><a href="#">Liên Hệ</a></li>
