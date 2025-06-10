@@ -97,7 +97,6 @@ public class DiscountServlet extends HttpServlet {
         }
     }
 
-    // Các phương thức khác giữ nguyên
     @Override
     protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
@@ -106,9 +105,9 @@ public class DiscountServlet extends HttpServlet {
         if (discount != null) {
             discount.setActive(!discount.isActive());
             boolean success = discountDAO.updateDiscount(discount); // Dùng updateDiscount cho admin
-            response.getWriter().println(success ? "✅ Cập nhật thành công!" : "❌ Lỗi khi cập nhật!");
+            response.getWriter().println(success ? "Cập nhật thành công!" : "Lỗi khi cập nhật!");
         } else {
-            response.getWriter().println("❌ Không tìm thấy mã giảm giá!");
+            response.getWriter().println("Không tìm thấy mã giảm giá!");
         }
     }
 
@@ -117,7 +116,7 @@ public class DiscountServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         String code = request.getParameter("code");
         boolean success = discountDAO.deleteDiscount(code);
-        response.getWriter().println(success ? "🗑️ Xóa thành công!" : "❌ Lỗi khi xóa!");
+        response.getWriter().println(success ? "Xóa thành công!" : "Lỗi khi xóa!");
     }
 
     @Override
@@ -128,13 +127,13 @@ public class DiscountServlet extends HttpServlet {
         Discount discount = discountDAO.getDiscountByCode(code);
         if (discount != null) {
             if (!discount.isActive()) {
-                response.getWriter().println("❌ Mã giảm giá đã bị vô hiệu hóa!");
+                response.getWriter().println("Mã giảm giá đã bị vô hiệu hóa!");
                 return;
             }
             if (discount.getCounter() >= discount.getMaxUsage()) {
                 discount.setActive(false);
                 discountDAO.updateDiscount(discount); // Dùng updateDiscount cho admin
-                response.getWriter().println("❌ Mã giảm giá đã đạt số lần sử dụng tối đa và bị vô hiệu hóa!");
+                response.getWriter().println("Mã giảm giá đã đạt số lần sử dụng tối đa và bị vô hiệu hóa!");
                 return;
             }
             discount.setCounter(discount.getCounter() + 1);
@@ -142,9 +141,9 @@ public class DiscountServlet extends HttpServlet {
                 discount.setActive(false);
             }
             discountDAO.updateDiscount(discount); // Dùng updateDiscount cho admin
-            response.getWriter().println("✅ Giảm giá đã được áp dụng! Số lần còn lại: " + (discount.getMaxUsage() - discount.getCounter()));
+            response.getWriter().println("Giảm giá đã được áp dụng! Số lần còn lại: " + (discount.getMaxUsage() - discount.getCounter()));
         } else {
-            response.getWriter().println("❌ Không tìm thấy mã giảm giá!");
+            response.getWriter().println("Không tìm thấy mã giảm giá!");
         }
     }
 }

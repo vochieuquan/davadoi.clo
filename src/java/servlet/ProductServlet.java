@@ -17,9 +17,9 @@ import java.io.InputStream;
 import java.util.List;
 
 @WebServlet("/products")
-@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
-                 maxFileSize = 1024 * 1024 * 10, // 10MB
-                 maxRequestSize = 1024 * 1024 * 50) // 50MB
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, 
+                 maxFileSize = 1024 * 1024 * 10, 
+                 maxRequestSize = 1024 * 1024 * 50)
 public class ProductServlet extends HttpServlet {
     private ProductDAO productDAO = new ProductDAO();
 

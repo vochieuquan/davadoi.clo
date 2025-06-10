@@ -31,7 +31,6 @@ public class RegisterServlet extends HttpServlet {
 
         String userRole = "customer"; // Mặc định là khách hàng
 
-        // Kiểm tra dữ liệu nhập vào
         if (firstName.isEmpty() || lastName.isEmpty() || gender.isEmpty() || dob.isEmpty() ||
             username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             request.setAttribute("error", "Vui lòng nhập đầy đủ thông tin!");

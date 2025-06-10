@@ -7,7 +7,7 @@ import java.util.List;
 
 public class DiscountDAO {
     private static Connection getConnection() throws SQLException {
-        return DatabaseConnection.getConnection(); // Đảm bảo class này hoạt động
+        return DatabaseConnection.getConnection();
     }
 
     public List<Discount> getAllDiscounts() {

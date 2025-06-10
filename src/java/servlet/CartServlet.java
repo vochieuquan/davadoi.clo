@@ -119,7 +119,6 @@ public class CartServlet extends HttpServlet {
                 String selectedSize = request.getParameter("size");
                 cart.removeItem(productId, selectedSize);
             } catch (NumberFormatException e) {
-                // Handle invalid product ID
             }
         }
         response.sendRedirect(request.getContextPath() + "/cart.jsp");

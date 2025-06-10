@@ -41,7 +41,6 @@
         // Initialize or clear cart if payment was successful
         String paymentMessage = (String) session.getAttribute("paymentMessage");
         if (paymentMessage != null) {
-            // Remove the message from session
             session.removeAttribute("paymentMessage");
         }
     %>

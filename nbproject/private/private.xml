@@ -3,19 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/cart.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/footer.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/admin.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/home_admin.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/blog.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/src/java/model/Cart.java</file>
             <file>file:/F:/ky4/prj_301/ClothesWeb_1/src/java/servlet/CartServlet.java</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/orders.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/index.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/customerpay.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/body.jsp</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/src/java/servlet/DiscountServlet.java</file>
-            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/normalpay.jsp</file>
+            <file>file:/F:/ky4/prj_301/ClothesWeb_1/web/blog.jsp</file>
         </group>
     </open-files>
 </project-private>

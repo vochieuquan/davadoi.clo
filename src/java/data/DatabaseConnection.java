@@ -6,8 +6,9 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
     private static final String URL = "jdbc:sqlserver://LAPTOP-00KVPJLV:1433;databaseName=davaodoicopy;encrypt=false";
-    private static final String USER = "sa"; 
-    private static final String PASSWORD = "123456abc"; 
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASS");
+ 
 
     public static Connection getConnection() throws SQLException {
     try {

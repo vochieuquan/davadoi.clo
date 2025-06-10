@@ -218,7 +218,6 @@
 
     
     <script>
-        // Slider functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slider img');
         const slideCount = slides.length;
@@ -232,14 +231,9 @@
             showSlide(currentSlide);
         }
         
-        // Auto-advance slides every 5 seconds
         setInterval(nextSlide, 5000);
         
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
-            const navLeft = document.querySelector('.nav-left');
-            navLeft.style.display = navLeft.style.display === 'flex' ? 'none' : 'flex';
-        });
+        
     </script>
 </body>
 </html>
